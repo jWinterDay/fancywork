@@ -1,9 +1,44 @@
+import 'dart:async';
+
+import 'package:utils/logger.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
+  runZonedGuarded<void>(
+    _run,
+    (Object error, StackTrace stackTrace) {
+      logger.e(error, error.toString(), stackTrace);
+      // final bool doReport = !notReportedExceptions.contains(error.runtimeType);
+      // if (!PlatformInfo.isDesktopExceptMac && doReport) {
+      //   FirebaseCrashlytics.instance.recordError(error, stackTrace);
+      // }
+    },
+  );
+}
+
+Future<void> _run() async {
+  // Logger.level = Level.error; //debug;
+  // EquatableConfig.stringify = true;
+
+  // initDiProduction();
+  // await initApplication();
+
+  // diGet<StoreProvider>().actions<AppActions>().stories.setStories(storiesResultModel.stories);
+
+  // TODO(Luvti): TEMPORARY init
+  // ignore: cool_linter_needs_fixes
+  // await Palette.init();
+  // final DesignData design = await DesignData().initAsync();
+
   runApp(MyApp());
+  // runApp(
+  //   Design(
+  //     design: design,
+  //     child: const LigaStavokApp(),
+  //   ),
+  // );
 }
 
 class MyApp extends StatelessWidget {
