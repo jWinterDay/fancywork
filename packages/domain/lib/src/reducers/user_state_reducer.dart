@@ -1,22 +1,31 @@
-import 'package:domain/src/actions/user_actions.dart';
 import 'package:redux/redux.dart';
 
+import 'package:domain/src/actions/user_actions.dart';
 import 'package:domain/src/states/user_state.dart';
 
 final Reducer<UserState> userStateReducer = combineReducers<UserState>(<UserState Function(UserState, dynamic)>[
-  TypedReducer<UserState, UserLoggedInAction>(_loggedIn),
+  // ignore: always_specify_types
+  TypedReducer<UserState, UserLoggedInAction>((s, a) => s.copyWith(loggedIn: a.loggedIn)),
+  // ignore: always_specify_types
+  TypedReducer<UserState, UserAccessGroupAction>((s, a) => s.copyWith(accessGroups: a.accessGroups)),
+
+  TypedReducer<UserState, UserCredsAction>(_changedCredsAction),
+
+  TypedReducer<UserState, UserTokensAction>(_changedTokensAction),
 ]);
 
-UserState _loggedIn(UserState state, UserLoggedInAction action) {
-  return state.copyWith(loggedIn: action.loggedIn);
+UserState _changedCredsAction(UserState s, UserCredsAction a) {
+  return s.copyWith(
+    userId: a.userId,
+    firstName: a.firstName,
+    lastName: a.lastName,
+    email: a.email,
+  );
 }
 
-// @JsonKey(name: 'logged_in') @Default(false) bool loggedIn,
-// @JsonKey(name: 'user_id') String? userId,
-// @JsonKey(name: 'first_name') String? firstName,
-// @JsonKey(name: 'last_name') String? lastName,
-// @JsonKey(name: 'email') String? email,
-// @JsonKey(name: 'token') String? token,
-// @JsonKey(name: 'refresh_token') String? refreshToken,
-// @JsonKey(name: 'access_groups') @Default(initAccesGroups) List<String> accessGroups,
-// @JsonKey(name: 'is_loading') @Default(false) bool isLoading,
+UserState _changedTokensAction(UserState s, UserTokensAction a) {
+  return s.copyWith(
+    token: a.token,
+    refreshToken: a.refreshToken,
+  );
+}
