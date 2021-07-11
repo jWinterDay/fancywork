@@ -1,7 +1,7 @@
 import 'package:redux/redux.dart';
 
-import 'package:domain/src/user/user_actions.dart';
-import 'package:domain/src/user/user_state.dart';
+import 'user_actions.dart';
+import 'user_state.dart';
 
 // ignore: always_specify_types
 final Reducer<UserState> userStateReducer = combineReducers<UserState>(<UserState Function(UserState, dynamic)>[

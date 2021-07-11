@@ -1,6 +1,7 @@
-import 'package:domain/src/palette/palette_actions.dart';
-import 'package:domain/src/palette/palette_state.dart';
 import 'package:redux/redux.dart';
+
+import 'palette_actions.dart';
+import 'palette_state.dart';
 
 // ignore: always_specify_types
 final Reducer<PaletteState> paletteStateReducer = combineReducers<PaletteState>([

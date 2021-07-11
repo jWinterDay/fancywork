@@ -1,7 +1,7 @@
-import 'package:domain/src/app/app_reducer.dart';
 import 'package:redux/redux.dart';
 
-import 'package:domain/src/app/app_state.dart';
+import 'redux/app/app_reducer.dart';
+import 'redux/app/app_state.dart';
 
 abstract class AppDomainProvider {
   AppDomainProvider._();
