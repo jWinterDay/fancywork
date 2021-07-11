@@ -37,6 +37,7 @@ dependencies:
   #   path: ../design_system
 
   # custom packages
+  dmc_threads: ^0.1.1
   utils:
     path: ./packages/utils
 

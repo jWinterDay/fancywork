@@ -20,9 +20,12 @@ AppState _$AppStateFromJson(Map<String, dynamic> json) {
 class _$AppStateTearOff {
   const _$AppStateTearOff();
 
-  _AppState call({@JsonKey(name: 'userState') UserState userState = const UserState()}) {
+  _AppState call(
+      {@JsonKey(name: 'user_state') UserState userState = const UserState(),
+      @JsonKey(name: 'palette_state') PaletteState paletteState = const PaletteState()}) {
     return _AppState(
       userState: userState,
+      paletteState: paletteState,
     );
   }
 
@@ -36,8 +39,10 @@ const $AppState = _$AppStateTearOff();
 
 /// @nodoc
 mixin _$AppState {
-  @JsonKey(name: 'userState')
+  @JsonKey(name: 'user_state')
   UserState get userState => throw _privateConstructorUsedError;
+  @JsonKey(name: 'palette_state')
+  PaletteState get paletteState => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,9 +52,11 @@ mixin _$AppState {
 /// @nodoc
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) = _$AppStateCopyWithImpl<$Res>;
-  $Res call({@JsonKey(name: 'userState') UserState userState});
+  $Res call(
+      {@JsonKey(name: 'user_state') UserState userState, @JsonKey(name: 'palette_state') PaletteState paletteState});
 
   $UserStateCopyWith<$Res> get userState;
+  $PaletteStateCopyWith<$Res> get paletteState;
 }
 
 /// @nodoc
@@ -63,12 +70,17 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
   @override
   $Res call({
     Object? userState = freezed,
+    Object? paletteState = freezed,
   }) {
     return _then(_value.copyWith(
       userState: userState == freezed
           ? _value.userState
           : userState // ignore: cast_nullable_to_non_nullable
               as UserState,
+      paletteState: paletteState == freezed
+          ? _value.paletteState
+          : paletteState // ignore: cast_nullable_to_non_nullable
+              as PaletteState,
     ));
   }
 
@@ -78,16 +90,26 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
       return _then(_value.copyWith(userState: value));
     });
   }
+
+  @override
+  $PaletteStateCopyWith<$Res> get paletteState {
+    return $PaletteStateCopyWith<$Res>(_value.paletteState, (value) {
+      return _then(_value.copyWith(paletteState: value));
+    });
+  }
 }
 
 /// @nodoc
 abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
   factory _$AppStateCopyWith(_AppState value, $Res Function(_AppState) then) = __$AppStateCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(name: 'userState') UserState userState});
+  $Res call(
+      {@JsonKey(name: 'user_state') UserState userState, @JsonKey(name: 'palette_state') PaletteState paletteState});
 
   @override
   $UserStateCopyWith<$Res> get userState;
+  @override
+  $PaletteStateCopyWith<$Res> get paletteState;
 }
 
 /// @nodoc
@@ -101,12 +123,17 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res> impleme
   @override
   $Res call({
     Object? userState = freezed,
+    Object? paletteState = freezed,
   }) {
     return _then(_AppState(
       userState: userState == freezed
           ? _value.userState
           : userState // ignore: cast_nullable_to_non_nullable
               as UserState,
+      paletteState: paletteState == freezed
+          ? _value.paletteState
+          : paletteState // ignore: cast_nullable_to_non_nullable
+              as PaletteState,
     ));
   }
 }
@@ -114,17 +141,23 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res> impleme
 /// @nodoc
 @JsonSerializable()
 class _$_AppState extends _AppState {
-  const _$_AppState({@JsonKey(name: 'userState') this.userState = const UserState()}) : super._();
+  const _$_AppState(
+      {@JsonKey(name: 'user_state') this.userState = const UserState(),
+      @JsonKey(name: 'palette_state') this.paletteState = const PaletteState()})
+      : super._();
 
   factory _$_AppState.fromJson(Map<String, dynamic> json) => _$_$_AppStateFromJson(json);
 
   @override
-  @JsonKey(name: 'userState')
+  @JsonKey(name: 'user_state')
   final UserState userState;
+  @override
+  @JsonKey(name: 'palette_state')
+  final PaletteState paletteState;
 
   @override
   String toString() {
-    return 'AppState(userState: $userState)';
+    return 'AppState(userState: $userState, paletteState: $paletteState)';
   }
 
   @override
@@ -132,11 +165,16 @@ class _$_AppState extends _AppState {
     return identical(this, other) ||
         (other is _AppState &&
             (identical(other.userState, userState) ||
-                const DeepCollectionEquality().equals(other.userState, userState)));
+                const DeepCollectionEquality().equals(other.userState, userState)) &&
+            (identical(other.paletteState, paletteState) ||
+                const DeepCollectionEquality().equals(other.paletteState, paletteState)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(userState);
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(userState) ^
+      const DeepCollectionEquality().hash(paletteState);
 
   @JsonKey(ignore: true)
   @override
@@ -149,14 +187,19 @@ class _$_AppState extends _AppState {
 }
 
 abstract class _AppState extends AppState {
-  const factory _AppState({@JsonKey(name: 'userState') UserState userState}) = _$_AppState;
+  const factory _AppState(
+      {@JsonKey(name: 'user_state') UserState userState,
+      @JsonKey(name: 'palette_state') PaletteState paletteState}) = _$_AppState;
   const _AppState._() : super._();
 
   factory _AppState.fromJson(Map<String, dynamic> json) = _$_AppState.fromJson;
 
   @override
-  @JsonKey(name: 'userState')
+  @JsonKey(name: 'user_state')
   UserState get userState => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'palette_state')
+  PaletteState get paletteState => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AppStateCopyWith<_AppState> get copyWith => throw _privateConstructorUsedError;

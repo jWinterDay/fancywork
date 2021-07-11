@@ -8,11 +8,15 @@ void main() {
     test('user_state', () {
       const UserState initUserState = UserState();
 
+      print(initUserState.toJson());
+
       expect(initUserState.loggedIn, false);
     });
 
     test('app_state', () {
       const AppState appState = AppState();
+
+      // print(appState.toJson());
 
       expect(appState.userState.loggedIn, false);
     });

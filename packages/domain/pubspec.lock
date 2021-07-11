@@ -155,6 +155,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  dmc_threads:
+    dependency: "direct main"
+    description:
+      name: dmc_threads
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.1"
+  dmc_threads_annotation:
+    dependency: transitive
+    description:
+      name: dmc_threads_annotation
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
   file:
     dependency: transitive
     description:
@@ -240,7 +254,7 @@ packages:
     source: hosted
     version: "4.0.1"
   json_serializable:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: json_serializable
       url: "https://pub.dartlang.org"

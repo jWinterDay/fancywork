@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'app_state.dart';
+part of 'palette_state.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -8,12 +8,14 @@ part of 'app_state.dart';
 
 _$_AppState _$_$_AppStateFromJson(Map<String, dynamic> json) {
   return _$_AppState(
-    userState: UserState.fromJson(json['user_state'] as Map<String, dynamic>),
-    paletteState: PaletteState.fromJson(json['palette_state'] as Map<String, dynamic>),
+    selectedDmcCodes: (json['selected_dmc_codes'] as List<dynamic>).map((e) => e as String).toSet(),
+    dmcMap: (json['dmc_map'] as Map<String, dynamic>).map(
+      (k, e) => MapEntry(k, Dmc.fromJson(e as Map<String, dynamic>)),
+    ),
   );
 }
 
 Map<String, dynamic> _$_$_AppStateToJson(_$_AppState instance) => <String, dynamic>{
-      'user_state': instance.userState.toJson(),
-      'palette_state': instance.paletteState.toJson(),
+      'selected_dmc_codes': instance.selectedDmcCodes.toList(),
+      'dmc_map': instance.dmcMap.map((k, e) => MapEntry(k, e.toJson())),
     };
