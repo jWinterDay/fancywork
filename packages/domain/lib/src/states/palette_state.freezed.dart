@@ -13,17 +13,17 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PaletteState _$PaletteStateFromJson(Map<String, dynamic> json) {
-  return _AppState.fromJson(json);
+  return _PaletteState.fromJson(json);
 }
 
 /// @nodoc
 class _$PaletteStateTearOff {
   const _$PaletteStateTearOff();
 
-  _AppState call(
+  _PaletteState call(
       {@JsonKey(name: 'selected_dmc_codes') Set<String> selectedDmcCodes = const <String>{},
       @JsonKey(name: 'dmc_map') Map<String, Dmc> dmcMap = const <String, Dmc>{}}) {
-    return _AppState(
+    return _PaletteState(
       selectedDmcCodes: selectedDmcCodes,
       dmcMap: dmcMap,
     );
@@ -85,8 +85,9 @@ class _$PaletteStateCopyWithImpl<$Res> implements $PaletteStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AppStateCopyWith<$Res> implements $PaletteStateCopyWith<$Res> {
-  factory _$AppStateCopyWith(_AppState value, $Res Function(_AppState) then) = __$AppStateCopyWithImpl<$Res>;
+abstract class _$PaletteStateCopyWith<$Res> implements $PaletteStateCopyWith<$Res> {
+  factory _$PaletteStateCopyWith(_PaletteState value, $Res Function(_PaletteState) then) =
+      __$PaletteStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: 'selected_dmc_codes') Set<String> selectedDmcCodes,
@@ -94,19 +95,20 @@ abstract class _$AppStateCopyWith<$Res> implements $PaletteStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$AppStateCopyWithImpl<$Res> extends _$PaletteStateCopyWithImpl<$Res> implements _$AppStateCopyWith<$Res> {
-  __$AppStateCopyWithImpl(_AppState _value, $Res Function(_AppState) _then)
-      : super(_value, (v) => _then(v as _AppState));
+class __$PaletteStateCopyWithImpl<$Res> extends _$PaletteStateCopyWithImpl<$Res>
+    implements _$PaletteStateCopyWith<$Res> {
+  __$PaletteStateCopyWithImpl(_PaletteState _value, $Res Function(_PaletteState) _then)
+      : super(_value, (v) => _then(v as _PaletteState));
 
   @override
-  _AppState get _value => super._value as _AppState;
+  _PaletteState get _value => super._value as _PaletteState;
 
   @override
   $Res call({
     Object? selectedDmcCodes = freezed,
     Object? dmcMap = freezed,
   }) {
-    return _then(_AppState(
+    return _then(_PaletteState(
       selectedDmcCodes: selectedDmcCodes == freezed
           ? _value.selectedDmcCodes
           : selectedDmcCodes // ignore: cast_nullable_to_non_nullable
@@ -121,13 +123,13 @@ class __$AppStateCopyWithImpl<$Res> extends _$PaletteStateCopyWithImpl<$Res> imp
 
 /// @nodoc
 @JsonSerializable()
-class _$_AppState extends _AppState {
-  const _$_AppState(
+class _$_PaletteState extends _PaletteState {
+  const _$_PaletteState(
       {@JsonKey(name: 'selected_dmc_codes') this.selectedDmcCodes = const <String>{},
       @JsonKey(name: 'dmc_map') this.dmcMap = const <String, Dmc>{}})
       : super._();
 
-  factory _$_AppState.fromJson(Map<String, dynamic> json) => _$_$_AppStateFromJson(json);
+  factory _$_PaletteState.fromJson(Map<String, dynamic> json) => _$_$_PaletteStateFromJson(json);
 
   @override
   @JsonKey(name: 'selected_dmc_codes')
@@ -144,7 +146,7 @@ class _$_AppState extends _AppState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AppState &&
+        (other is _PaletteState &&
             (identical(other.selectedDmcCodes, selectedDmcCodes) ||
                 const DeepCollectionEquality().equals(other.selectedDmcCodes, selectedDmcCodes)) &&
             (identical(other.dmcMap, dmcMap) || const DeepCollectionEquality().equals(other.dmcMap, dmcMap)));
@@ -158,21 +160,21 @@ class _$_AppState extends _AppState {
 
   @JsonKey(ignore: true)
   @override
-  _$AppStateCopyWith<_AppState> get copyWith => __$AppStateCopyWithImpl<_AppState>(this, _$identity);
+  _$PaletteStateCopyWith<_PaletteState> get copyWith => __$PaletteStateCopyWithImpl<_PaletteState>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_AppStateToJson(this);
+    return _$_$_PaletteStateToJson(this);
   }
 }
 
-abstract class _AppState extends PaletteState {
-  const factory _AppState(
+abstract class _PaletteState extends PaletteState {
+  const factory _PaletteState(
       {@JsonKey(name: 'selected_dmc_codes') Set<String> selectedDmcCodes,
-      @JsonKey(name: 'dmc_map') Map<String, Dmc> dmcMap}) = _$_AppState;
-  const _AppState._() : super._();
+      @JsonKey(name: 'dmc_map') Map<String, Dmc> dmcMap}) = _$_PaletteState;
+  const _PaletteState._() : super._();
 
-  factory _AppState.fromJson(Map<String, dynamic> json) = _$_AppState.fromJson;
+  factory _PaletteState.fromJson(Map<String, dynamic> json) = _$_PaletteState.fromJson;
 
   @override
   @JsonKey(name: 'selected_dmc_codes')
@@ -182,5 +184,5 @@ abstract class _AppState extends PaletteState {
   Map<String, Dmc> get dmcMap => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AppStateCopyWith<_AppState> get copyWith => throw _privateConstructorUsedError;
+  _$PaletteStateCopyWith<_PaletteState> get copyWith => throw _privateConstructorUsedError;
 }
