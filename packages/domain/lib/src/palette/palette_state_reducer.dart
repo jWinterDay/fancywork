@@ -1,5 +1,5 @@
-import 'package:domain/src/actions/palette_actions.dart';
-import 'package:domain/src/states/palette_state.dart';
+import 'package:domain/src/palette/palette_actions.dart';
+import 'package:domain/src/palette/palette_state.dart';
 import 'package:redux/redux.dart';
 
 // ignore: always_specify_types

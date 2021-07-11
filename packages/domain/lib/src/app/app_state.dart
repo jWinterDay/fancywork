@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'palette_state.dart';
-import 'project_state.dart';
-import 'user_state.dart';
+import '../palette/palette_state.dart';
+import '../project/project_state.dart';
+import '../user/user_state.dart';
 
 part 'app_state.freezed.dart';
 part 'app_state.g.dart';

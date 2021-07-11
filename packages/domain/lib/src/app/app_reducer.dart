@@ -1,7 +1,7 @@
-import 'package:domain/src/states/app_state.dart';
+import 'package:domain/src/app/app_state.dart';
 
-import 'palette_state_reducer.dart';
-import 'user_state_reducer.dart';
+import '../palette/palette_state_reducer.dart';
+import '../user/user_state_reducer.dart';
 
 AppState appReducer(AppState state, dynamic action) {
   return state.copyWith(

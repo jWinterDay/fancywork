@@ -1,11 +1,6 @@
 import 'package:dmc_threads/dmc_threads.dart';
-import 'package:domain/src/actions/palette_actions.dart';
-import 'package:domain/src/actions/user_actions.dart';
-import 'package:domain/src/states/app_state.dart';
-import 'package:domain/src/states/palette_state.dart';
-import 'package:domain/src/states/user_state.dart';
-import 'package:domain/src/store/app_domain_provider.dart';
-import 'package:redux/src/store.dart';
+import 'package:domain/domain.dart';
+import 'package:redux/redux.dart';
 import 'package:test/test.dart';
 
 /// to run tests write `flutter test test/entry_point.dart` in terminal
