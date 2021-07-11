@@ -3,14 +3,13 @@ import 'package:redux/redux.dart';
 import 'package:domain/src/actions/user_actions.dart';
 import 'package:domain/src/states/user_state.dart';
 
+// ignore: always_specify_types
 final Reducer<UserState> userStateReducer = combineReducers<UserState>(<UserState Function(UserState, dynamic)>[
   // ignore: always_specify_types
   TypedReducer<UserState, UserLoggedInAction>((s, a) => s.copyWith(loggedIn: a.loggedIn)),
   // ignore: always_specify_types
   TypedReducer<UserState, UserAccessGroupAction>((s, a) => s.copyWith(accessGroups: a.accessGroups)),
-
   TypedReducer<UserState, UserCredsAction>(_changedCredsAction),
-
   TypedReducer<UserState, UserTokensAction>(_changedTokensAction),
 ]);
 

@@ -1,3 +1,5 @@
+import 'package:dmc_threads/dmc_threads.dart';
+import 'package:domain/src/actions/palette_actions.dart';
 import 'package:domain/src/actions/user_actions.dart';
 import 'package:domain/src/states/app_state.dart';
 import 'package:domain/src/states/palette_state.dart';
@@ -34,15 +36,30 @@ void main() {
   });
 
   group('domain', () {
-    test('app_domain_provider', () async {
+    test('user', () async {
       final Store<AppState> appStore = AppDomainProvider.appStore;
 
-      // before
+      // logged in
       expect(appStore.state.userState.loggedIn, false);
-
-      // after
-      appStore.dispatch(UserLoggedInAction(loggedIn: true));
+      appStore.dispatch(const UserLoggedInAction(loggedIn: true));
       expect(appStore.state.userState.loggedIn, true);
+    });
+
+    test('palette', () async {
+      final Store<AppState> appStore = AppDomainProvider.appStore;
+
+      // selected codes
+      expect(appStore.state.paletteState.selectedDmcCodes, isEmpty);
+      appStore.dispatch(const SelectDmcCodesAction(selectedDmcCodes: <String>{'1'}));
+      expect(appStore.state.paletteState.selectedDmcCodes.length, 1);
+      appStore.dispatch(const ClearDmcCodesAction());
+      expect(appStore.state.paletteState.selectedDmcCodes, isEmpty);
+
+      // dmc map
+      expect(Palette.dmcMap, isNotEmpty);
+      expect(appStore.state.paletteState.dmcMap, isEmpty);
+      appStore.dispatch(ChangeDmcMapAction(dmcMap: Palette.dmcMap));
+      expect(appStore.state.paletteState.dmcMap.length, Palette.dmcMap.length);
     });
   });
 }

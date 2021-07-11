@@ -11,7 +11,6 @@ class PaletteState with _$PaletteState {
   const factory PaletteState({
     @Default(<String>{}) @JsonKey(name: 'selected_dmc_codes') Set<String> selectedDmcCodes,
     @Default(<String, Dmc>{}) @JsonKey(name: 'dmc_map') Map<String, Dmc> dmcMap,
-    // @Default(UserState()) @JsonKey(name: 'user_state') UserState userState,
   }) = _PaletteState;
 
   factory PaletteState.fromJson(Map<String, dynamic> json) => _$PaletteStateFromJson(json);
